@@ -66,3 +66,11 @@ GetString("database.password") // (returns "")
 
 - `ShouldDo(d time.Duration, key string)`
 - `ShouldDof(d time.Duration, format string, v ...interface{})` `key`使用格式化
+
+## cacheutil
+缓存工具
+
+- `StoreJson(v interface{}, cacheFilePath string)`缓存结构体到指定json文件中
+- `LoadJson(v interface{}, cacheFilePath string)`加载json文件内容到结构体中
+- `StoreGob(v interface{}, cacheFilePath string)`缓存结构体到指定二进制文件中
+- `LoadGob(v interface{}, cacheFilePath string)`加载二进制文件内容到结构体中
