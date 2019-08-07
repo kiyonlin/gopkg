@@ -60,3 +60,9 @@ GetString("database.password") // (returns "")
 - `FileExists(path string)`判断文件是否存在
 - `EnsureDir(dirName string, mode ...os.FileMode)`保证目录存在，可以自行指定文件`mode`
 - `FilePath(dirName, fileName string)`根据路径和文件名生成文件路径，保证其存在
+
+## do
+指定`key`一段时间内是否需要操作
+
+- `ShouldDo(d time.Duration, key string)`
+- `ShouldDof(d time.Duration, format string, v ...interface{})` `key`使用格式化
