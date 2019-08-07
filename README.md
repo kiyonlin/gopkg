@@ -53,3 +53,10 @@ GetString("database.server", "127.0.0.1") // (returns "192.168.1.1")
 GetString("database.username", "root") // (returns "root")
 GetString("database.password") // (returns "")
 ```
+
+## fileutil
+文件操作工具
+
+- `FileExists(path string)`判断文件是否存在
+- `EnsureDir(dirName string, mode ...os.FileMode)`保证目录存在，可以自行指定文件`mode`
+- `FilePath(dirName, fileName string)`根据路径和文件名生成文件路径，保证其存在
