@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	keys    map[string]time.Time
+	keys    = map[string]time.Time{}
 	doneMut sync.Mutex
 )
 
