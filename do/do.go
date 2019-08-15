@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	items   map[string]time.Time
+	keys    map[string]time.Time
 	doneMut sync.Mutex
 )
 
@@ -15,8 +15,8 @@ var (
 func ShouldDo(d time.Duration, key string) bool {
 	doneMut.Lock()
 	defer doneMut.Unlock()
-	if t, ok := items[key]; !ok || t.Before(time.Now()) {
-		items[key] = time.Now().Add(d)
+	if t, ok := keys[key]; !ok || t.Before(time.Now()) {
+		keys[key] = time.Now().Add(d)
 		return true
 	}
 	return false
