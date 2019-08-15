@@ -1,4 +1,4 @@
-package fcoin
+package do
 
 import (
 	"fmt"
