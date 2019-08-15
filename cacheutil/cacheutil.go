@@ -1,4 +1,4 @@
-package fcoin
+package cacheutil
 
 import (
 	"encoding/gob"
