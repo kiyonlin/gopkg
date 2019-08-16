@@ -66,6 +66,7 @@ GetString("database.password") // (returns "")
 
 - `ShouldDo(d time.Duration, key string)`
 - `ShouldDof(d time.Duration, format string, v ...interface{})` `key`使用格式化
+- `SyncDone(done chan<- struct{})` 非阻塞发送`done`消息
 
 ## cacheutil
 缓存工具

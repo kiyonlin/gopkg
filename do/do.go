@@ -26,3 +26,11 @@ func ShouldDo(d time.Duration, key string) bool {
 func ShouldDof(d time.Duration, format string, v ...interface{}) bool {
 	return ShouldDo(d, fmt.Sprintf(format, v...))
 }
+
+// SyncDone 非阻塞发送 done 消息
+func SyncDone(done chan<- struct{}) {
+	select {
+	case done <- struct{}{}:
+	default:
+	}
+}
