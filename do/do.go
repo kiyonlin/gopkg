@@ -27,6 +27,18 @@ func ShouldDof(d time.Duration, format string, v ...interface{}) bool {
 	return ShouldDo(d, fmt.Sprintf(format, v...))
 }
 
+// SetExpires 设置指定key过期时间
+func SetExpires(t time.Time, key string) {
+	doneMut.Lock()
+	defer doneMut.Unlock()
+	keys[key] = t
+}
+
+// SetExpiresf 设置指定key过期时间，key 格式化
+func SetExpiresf(t time.Time, format string, v ...interface{}) {
+	SetExpires(t, fmt.Sprintf(format, v...))
+}
+
 // SyncDone 非阻塞发送 done 消息
 func SyncDone(done chan<- struct{}) {
 	select {

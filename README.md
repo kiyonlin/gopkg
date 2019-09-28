@@ -62,10 +62,12 @@ GetString("database.password") // (returns "")
 - `FilePath(dirName, fileName string)`根据路径和文件名生成文件路径，保证其存在
 
 ## do
-指定`key`一段时间内是否需要操作
+指定`key`一段时间内是否需要操作，可以设定过期时间
 
 - `ShouldDo(d time.Duration, key string)`
 - `ShouldDof(d time.Duration, format string, v ...interface{})` `key`使用格式化
+- `SetExpires(t time.Time, key string)`
+- `SetExpiresf(t time.Time, format string, v ...interface{})` `key`使用格式化
 - `SyncDone(done chan<- struct{})` 非阻塞发送`done`消息
 
 ## cacheutil
