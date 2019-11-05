@@ -68,6 +68,8 @@ GetString("database.password") // (returns "")
 - `ShouldDof(d time.Duration, format string, v ...interface{})` `key`使用格式化
 - `SetExpires(t time.Time, key string)`
 - `SetExpiresf(t time.Time, format string, v ...interface{})` `key`使用格式化
+- `Clear(key string)`
+- `Clearf(format string, v ...interface{})` `key`使用格式化
 - `SyncDone(done chan<- struct{})` 非阻塞发送`done`消息
 
 ## cacheutil

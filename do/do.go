@@ -39,6 +39,18 @@ func SetExpiresf(t time.Time, format string, v ...interface{}) {
 	SetExpires(t, fmt.Sprintf(format, v...))
 }
 
+// Clear 清除指定key过期时间
+func Clear(key string) {
+	doneMut.Lock()
+	defer doneMut.Unlock()
+	delete(keys, key)
+}
+
+// Clearf 清除指定key过期时间，key 格式化
+func Clearf(format string, v ...interface{}) {
+	Clear(fmt.Sprintf(format, v...))
+}
+
 // SyncDone 非阻塞发送 done 消息
 func SyncDone(done chan<- struct{}) {
 	select {
